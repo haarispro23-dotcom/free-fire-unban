@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<title>HAARIS MODS UNBAN</title>
+<style>
+:root{--bg:#080b12;--panel:#141b29;--line:#303d53;--orange:#ff862e;--text:#f7f8ff;--muted:#aab5c9}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#42200e,transparent 46%),var(--bg);color:var(--text);font-family:system-ui,Arial,sans-serif}
+header{padding:17px;text-align:center;border-bottom:1px solid var(--line);font-weight:900;letter-spacing:1px}
+header span,h1 span{color:var(--orange)}
+main{width:min(94%,700px);margin:auto}
+.hero{text-align:center;padding:30px 0 24px}
+.logo{width:140px;height:140px;object-fit:contain;display:block;margin:0 auto 18px;border-radius:22px;filter:drop-shadow(0 0 22px #ff862e50)}
+h1{font-size:clamp(28px,7vw,42px);line-height:1.15;margin:0}
+p{line-height:1.7}
+.muted{font-size:13px;color:var(--muted)}
+.card{padding:20px;margin-bottom:16px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#171f2e,#10141e)}
+h2{font-size:19px;margin:0 0 8px}
+.badge{display:inline-block;padding:6px 10px;margin-bottom:12px;border-radius:30px;background:#2d1a10;border:1px solid #75421f;color:#ffbd87;font-size:11px;font-weight:800}
+label{display:block;font-size:13px;font-weight:700;margin:16px 0 8px}
+input,select,textarea{width:100%;padding:14px;border:1px solid #394760;border-radius:10px;background:#090e18;color:white;font:inherit}
+textarea{min-height:90px;resize:vertical}
+button,.social{display:block;width:100%;padding:14px;margin-top:12px;border:0;border-radius:10px;font-weight:800;text-align:center;font-size:14px;cursor:pointer;text-decoration:none}
+.primary{background:linear-gradient(100deg,#ffb454,#ff741b);color:#180b02}
+.secondary,.social{background:#202a3c;border:1px solid #394962;color:white}
+.social strong{color:#ffad65}
+.step{display:none}
+.step.active{display:block}
+.notice{background:#21180f;border:1px solid #684324;border-radius:10px;padding:13px;color:#e8cbb2;font-size:12px;line-height:1.8;margin-top:14px}
+#countdown{font-size:clamp(27px,8vw,39px);text-align:center;font-weight:900;color:var(--orange);margin:24px 0;font-variant-numeric:tabular-nums}
+.center{text-align:center}
+footer{text-align:center;padding:25px 12px 35px;color:var(--muted);font-size:12px}
+@media(max-width:420px){.card{padding:16px}.logo{width:120px;height:120px}}
+</style>
+</head>
+<body>
+<header>HAARIS <span>MODS UNBAN</span></header>
+<main>
+<section class="hero">
+  <img class="logo" src="./haaris-mods-logo.jpg" alt="HAARIS MODS UNBAN logo">
+  <h1>HAARIS MODS<br><span>UNBAN CENTER</span></h1>
+  <p class="muted">Premium Account Appeal Assistant</p>
+</section>
+
+<section class="card step active" id="step1">
+  <span class="badge">STEP 01 / ACCOUNT</span>
+  <h2>Account Details</h2>
+  <p class="muted">Free Fire UID and ban reason enter pannu.</p>
+  <form id="accountForm">
+    <label for="uid">Free Fire UID *</label>
+    <input id="uid" inputmode="numeric" maxlength="20" pattern="[0-9]{5,20}" placeholder="Enter numeric UID" required>
+    <label for="reason">Ban Reason *</label>
+    <select id="reason" required>
+      <option value="">Select ban reason</option>
+      <option>Possible mistaken ban</option>
+      <option>Third-party app or modification concern</option>
+      <option>Unknown ban reason</option>
+      <option>Unusual account activity</option>
+      <option>Other reason</option>
+    </select>
+    <label for="details">Additional Details (optional)</label>
+    <textarea id="details" maxlength="800" placeholder="Explain what happened..."></textarea>
+    <button class="primary" type="submit">CONTINUE →</button>
+  </form>
+  <p class="muted">Password, OTP, or personal login details enter panna vendaam.</p>
+</section>
+
+<section class="card step" id="step2">
+  <span class="badge">STEP 02 / SOCIAL CHANNELS</span>
+  <h2>Our Social Channels</h2>
+  <p class="muted">Visit our official community pages.</p>
+  <a class="social" href="https://youtube.com/@unidentify_2.0?si=Fjuox-uPXGt4c2ih" target="_blank" rel="noopener noreferrer">▶ <strong>YouTube</strong> — Subscribe ↗</a>
+  <a class="social" href="https://t.me/haarismods" target="_blank" rel="noopener noreferrer">✈ <strong>Telegram</strong> — Join Channel ↗</a>
+  <a class="social" href="https://www.instagram.com/haaris_mods?xtok=MXZrbTc3ZDVpZDk2cA==" target="_blank" rel="noopener noreferrer">◎ <strong>Instagram</strong> — Follow Profile ↗</a>
+  <div class="notice">Social follows are optional and are not verified by this website. Following a channel does not affect Garena's decision.</div>
+  <button class="primary" id="toTimer" type="button">CONTINUE TO TIMER →</button>
+  <button class="secondary" id="back1" type="button">← BACK</button>
+</section>
+
+<section class="card step" id="step3">
+  <span class="badge">STEP 03 / REMINDER</span>
+  <h2 class="center">9-Day Follow-up Timer</h2>
+  <p class="muted center">A personal reminder to follow up on your appeal.</p>
+  <div id="countdown">9d 00h 00m 00s</div>
+  <p class="muted center" id="timerMessage">Reminder has not started.</p>
+  <div class="notice">Important: This is only a reminder timer. It cannot check your account or predict an unban. Timer mudinjaalum automatic unban aagaadhu.</div>
+  <button class="primary" id="startTimer" type="button">START 9-DAY TIMER</button>
+  <button class="secondary" id="viewLetter" type="button">VIEW APPEAL LETTER</button>
+  <button class="secondary" id="resetTimer" type="button">RESET TIMER</button>
+</section>
+
+<section class="card step" id="step4">
+  <span class="badge">STEP 04 / APPEAL DRAFT</span>
+  <h2>Your Appeal Letter</h2>
+  <p class="muted">Copy this draft and submit it through an official support channel, if available.</p>
+  <textarea id="letter" readonly style="min-height:300px"></textarea>
+  <button class="primary" id="copyLetter" type="button">COPY LETTER</button>
+  <p class="muted" id="copyStatus" role="status"></p>
+  <button class="secondary" id="backTimer" type="button">← BACK TO TIMER</button>
+</section>
+
+<div class="notice">
+  HAARIS MODS UNBAN is an unofficial fan-made website and is not affiliated with Garena or Free Fire. It does not check account status or submit appeals automatically. Information entered here is processed in your browser and is not uploaded by this page. No unban is guaranteed.
+</div>
+</main>
+<footer><strong>HAARIS MODS UNBAN</strong><br>Unofficial Account Appeal Assistant</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+let appealText = "";
+let timerInterval = null;
+
+function showStep(id){
+  document.querySelectorAll(".step").forEach(el=>el.classList.remove("active"));
+  $(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+$("accountForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const uid=$("uid").value.trim();
+  const reason=$("reason").value;
+  const details=$("details").value.trim();
+
+  if(!/^[0-9]{5,20}$/.test(uid)){
+    alert("Enter a valid numeric UID.");return;
+  }
+
+  appealText=`Subject: Request for Review of Free Fire Account Ban
+
+Dear Garena Support Team,
+
+I respectfully request a review of the ban on my Free Fire account.
+
+Player UID: ${uid}
+
+Reason for appeal:
+${reason}
+
+Additional details:
+${details || "I would appreciate clarification regarding the reason for the ban."}
+
+Please review my account in accordance with the game's rules and policies. If the ban was applied in error, I kindly request reconsideration.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Free Fire Player`;
+
+  showStep("step2");
+});
+
+$("back1").onclick=()=>showStep("step1");
+$("toTimer").onclick=()=>{
+  showStep("step3");
+  renderTimer();
+};
+
+function renderTimer(){
+  clearInterval(timerInterval);
+  function update(){
+    const end=Number(localStorage.getItem("haarismod_timer_end")||0);
+    if(!end){
+      $("countdown").textContent="9d 00h 00m 00s";
+      $("timerMessage").textContent="Press START 9-DAY TIMER to begin.";
+      return;
+    }
+    const left=end-Date.now();
+    if(left<=0){
+      $("countdown").textContent="9 DAYS COMPLETED";
+      $("timerMessage").textContent="Reminder finished. Account unban is not confirmed.";
+      clearInterval(timerInterval);return;
+    }
+    const d=Math.floor(left/86400000);
+    const h=Math.floor(left%86400000/3600000);
+    const m=Math.floor(left%3600000/60000);
+    const s=Math.floor(left%60000/1000);
+    $("countdown").textContent=`${d}d ${String(h).padStart(2,"0")}h ${String(m).padStart(2,"0")}m ${String(s).padStart(2,"0")}s`;
+    $("timerMessage").textContent="Reminder running — not an actual unban status.";
+  }
+  update();
+  if(Number(localStorage.getItem("haarismod_timer_end")||0)>Date.now())
+    timerInterval=setInterval(update,1000);
+}
+
+$("startTimer").onclick=()=>{
+  const end=Number(localStorage.getItem("haarismod_timer_end")||0);
+  if(!end||end<=Date.now()){
+    localStorage.setItem("haarismod_timer_end",String(Date.now()+9*24*60*60*1000));
+  }
+  renderTimer();
+};
+$("resetTimer").onclick=()=>{
+  localStorage.removeItem("haarismod_timer_end");
+  renderTimer();
+};
+$("viewLetter").onclick=()=>{
+  $("letter").value=appealText;
+  $("copyStatus").textContent="";
+  showStep("step4");
+};
+$("backTimer").onclick=()=>showStep("step3");
+$("copyLetter").onclick=async()=>{
+  try{
+    await navigator.clipboard.writeText($("letter").value);
+    $("copyStatus").textContent="Appeal letter copied!";
+  }catch(e){
+    $("letter").focus();$("letter").select();
+    $("copyStatus").textContent="Select the text and use Copy from your browser menu.";
+  }
+};
+renderTimer();
+</script>
+</body>
+</html>
